@@ -1,0 +1,76 @@
+.Header {
+  height: 40px;
+  display: flex;
+  align-items: normal;
+  justify-content: space-between;
+}
+
+.Header h1 {
+  margin: 0;
+}
+
+.Header a {
+  color: #444;
+  text-decoration: none;
+}
+
+.Header-tagline--wide {
+  opacity: 0.35;
+  margin-left: 10px;
+}
+
+.Header-tagline--narrow {
+  opacity: 0.35;
+  display: block;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+
+.Header-not-logged-in {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Header-logged-in {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Header-not-logged-in a:last-child {
+  background: black;
+  color: white;
+  padding: 5px 15px;
+  margin-left: 10px;
+}
+
+.Header-logged-in a {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 5px 15px;
+  border-radius: 15px;
+  margin-left: 5px;
+}
+
+@media screen and (min-width: 450px) {
+  .Header {
+    align-items: baseline;
+  }
+
+  .Header h1 {
+    font-size: 22pt;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .Header-tagline--wide {
+    display: none;
+  }
+
+  .Header-tagline--narrow {
+    display: inherit;
+  }
+}

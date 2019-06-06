@@ -1,3 +1,81 @@
+// const SOURCES = {
+//   'abc-news': {
+//             "id": "abc-news",
+//             "name": "ABC News",
+//             "description": "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.",
+//             "url": "https://abcnews.go.com",
+//             "category": "general",
+//             "language": "en",
+//             "country": "us"
+//         },
+//   'the-new-york-times': {
+//             "id": "the-new-york-times",
+//             "name": "The New York Times",
+//             "description": "The New York Times: Find breaking news, multimedia, reviews & opinion on Washington, business, sports, movies, travel, books, jobs, education, real estate, cars & more at nytimes.com.",
+//             "url": "http://www.nytimes.com",
+//             "category": "general",
+//             "language": "en",
+//             "country": "us"
+//         },
+//   'the-washington-post': {
+//             "id": "the-washington-post",
+//             "name": "The Washington Post",
+//             "description": "Breaking news and analysis on politics, business, world national news, entertainment more. In-depth DC, Virginia, Maryland news coverage including traffic, weather, crime, education, restaurant reviews and more.",
+//             "url": "https://www.washingtonpost.com",
+//             "category": "general",
+//             "language": "en",
+//             "country": "us"
+//         },
+//   'business-insider': {
+//             "id": "business-insider",
+//             "name": "Business Insider",
+//             "description": "Business Insider is a fast-growing business site with deep financial, media, tech, and other industry verticals. Launched in 2007, the site is now the largest business news site on the web.",
+//             "url": "http://www.businessinsider.com",
+//             "category": "business",
+//             "language": "en",
+//             "country": "us"
+//         },
+//   'techcrunch': {
+//             "id": "techcrunch",
+//             "name": "TechCrunch",
+//             "description": "TechCrunch is a leading technology media property, dedicated to obsessively profiling startups, reviewing new Internet products, and breaking tech news.",
+//             "url": "https://techcrunch.com",
+//             "category": "technology",
+//             "language": "en",
+//             "country": "us"
+//         },
+//   'time': {
+//             "id": "time",
+//             "name": "Time",
+//             "description": "Breaking news and analysis from TIME.com. Politics, world news, photos, video, tech reviews, health, science and entertainment news.",
+//             "url": "http://time.com",
+//             "category": "general",
+//             "language": "en",
+//             "country": "us"
+//         },
+//   'mtv-news': {
+//             "id": "mtv-news",
+//             "name": "MTV News",
+//             "description": "The ultimate news source for music, celebrity, entertainment, movies, and current events on the web. It's pop culture on steroids.",
+//             "url": "http://www.mtv.com/news",
+//             "category": "entertainment",
+//             "language": "en",
+//             "country": "us"
+//         },
+//   'wired': {
+//             "id": "wired",
+//             "name": "Wired",
+//             "description": "Wired is a monthly American magazine, published in print and online editions, that focuses on how emerging technologies affect culture, the economy, and politics.",
+//             "url": "https://www.wired.com",
+//             "category": "technology",
+//             "language": "en",
+//             "country": "us"
+//         }
+// }
+
+// export default SOURCES;
+
+
 const SOURCES = {
   "sources": [
         {
