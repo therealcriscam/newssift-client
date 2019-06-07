@@ -94,7 +94,6 @@ export default class RegistrationForm extends Component {
   }
 
   submitUser = () => {
-    console.log('running first')
     const {name, username, password} = this.state
 
     this.setState({error: null})
@@ -118,7 +117,6 @@ export default class RegistrationForm extends Component {
   }
 
   submitSubscriptions = () => {
-    console.log('running second')
     const {sources} = this.state
 
     sources.forEach(selected => {

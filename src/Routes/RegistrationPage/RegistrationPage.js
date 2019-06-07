@@ -16,7 +16,6 @@ export default class RegistrationPage extends Component {
   }
 
   handleRegistrationSuccess = (username, password) => {
-    console.log('runningg')
     return AuthApiService.postLogin({
       username,
       password
