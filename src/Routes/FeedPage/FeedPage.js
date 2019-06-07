@@ -1,20 +1,56 @@
 import React, { Component } from 'react'
-import ArticleList from '../../components/ArticleList/ArticleList'
+import Article from '../../components/Article/Article'
+import AppContext from '../../contexts/AppContext'
+import SubscriptionsApiService from '../../services/subscriptions-api-service'
+import NewsApiService from '../../services/news-api-service'
 
 export default class FeedPage extends Component {
+  static contextType = AppContext
+
+  componentDidMount = () => {
+    this.context.clearError()
+    this.context.clearArticles()
+    let subscriptions = [];
+    let sources;
+
+    SubscriptionsApiService.getUserSubscriptions()
+      .then(subs => {
+        subs.map(sub => subscriptions.push(sub.source_id))
+        sources = subscriptions.join()
+
+        return NewsApiService.getTopHeadlines(sources)
+          .then(res => this.context.setArticles(res.articles))
+          .catch(this.context.setError)
+      })
+      .catch(this.context.setError)
+  }
+
+  handleCheckNews = () => {}
+
+  renderArticles = (index) => {
+    const {articles = []} = this.context
+    return articles.map(article => 
+      <Article 
+        keyValue={index}
+        article={article}
+      />
+    )
+  }
+
   render() {
+    const {error} = this.context
     return (
       <div>
         <h1>Your Feed</h1>
-        <form>
-          <button type='submit'>Check the news!</button>
-          <div>
-            <label htmlFor="sort-by">Sort by:</label>
-            <input type="radio" name="sort-by" id="sort-by" value="publishedAt" defaultChecked />Latest News
-            <input type="radio" name="sort-by" id="sort-by" value="popularity" />Top Headlines
-          </div>
-        </form>
-        <ArticleList />
+        <button type='button' onClick={this.handleCheckNews} >
+          Check the news!
+        </button>
+        <ul className='article-list'>
+          {error
+            ? <p className='red'>There was an error, try again</p>
+            : this.renderArticles()
+          }  
+        </ul>
       </div>
     )
   }

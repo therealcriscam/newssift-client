@@ -93,36 +93,55 @@ export default class RegistrationForm extends Component {
     })
   }
 
-  handleSubmit = (event) => {
+  submitUser = () => {
     console.log('running first')
-    event.preventDefault()
-    const {name, username, password, sources} = this.state
-    sources.map(selected => {
-      const {value, label} = selected.source
-      console.log(value);
-      console.log(label);
-      return `${value} and ${label}`
-    })
+    const {name, username, password} = this.state
 
-    // this.setState({error: null})
+    this.setState({error: null})
 
-    AuthApiService.postUser({
+    return AuthApiService.postUser({
       username: username,
       password: password,
       name: name,
     })
-      .then(user => {
-        console.log('running second')
-        name.value = ''
-        username.value = ''
-        password.value = ''
-        this.props.onRegistrationSuccess(username.value, password.value)
+      .then(() => {
+        this.setState({
+          name: '',
+          username: '',
+          password: ''
+        })
+        return this.props.onRegistrationSuccess(username, password)
       })
       .catch(res => {
         this.setState({error: res.error})
       })
-    
-    // SubscriptionsApiService.postSubscription({})
+  }
+
+  submitSubscriptions = () => {
+    console.log('running second')
+    const {sources} = this.state
+
+    sources.forEach(selected => {
+      const {value, label} = selected.source
+      SubscriptionsApiService.postSubscription(value, label)
+        .then(() => {
+          this.setState({
+            sources: [],
+          })
+        })
+        .catch(res => {
+          this.setState({error: res.error})
+        })
+    })
+
+
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.setState({error: null})
+    this.submitUser()
+      .then(() => this.submitSubscriptions())
   }
 
   render() {

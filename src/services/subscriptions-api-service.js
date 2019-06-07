@@ -7,7 +7,7 @@ const SubscriptionsApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorizaton': `bearer ${TokenService.getAuthToken()}`
+        'authorization': `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
         source_id,
@@ -21,7 +21,18 @@ const SubscriptionsApiService = {
       )
   },
   getUserSubscriptions() {
-
+    return fetch(`${config.API_ENDPOINT}/subscriptions`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      }
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
   },
 }
 

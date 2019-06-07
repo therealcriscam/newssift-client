@@ -15,20 +15,13 @@ export default class RegistrationPage extends Component {
     error: null
   }
 
-  // handleRegistrationSuccess = (user) => {
-  //   const {history} = this.props
-  //   history.push('/')
-  // }
-
   handleRegistrationSuccess = (username, password) => {
     console.log('runningg')
-    AuthApiService.postLogin({
+    return AuthApiService.postLogin({
       username,
       password
     })
       .then(res => {
-        username.value = ''
-        password.value = ''
         TokenService.saveAuthToken(res.authToken)
 
         const {location, history} = this.props
