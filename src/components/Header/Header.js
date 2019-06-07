@@ -10,14 +10,22 @@ export default class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div className='Header-logged-in'>
-        <Link to='/feed'>Feed</Link>
-        <Link to='/search'>Search</Link>
-        <Link
-          onClick={this.handleLogoutClick}
-          to='/'>
-          Logout
-        </Link>
+      <div className='Header-logged-in navbar'>
+        <div className='dropdown'>
+          <button className='dropbtn'>Menu 
+            <i className='fa fa-caret-down'></i>
+          </button>
+          <div className='dropdown-content'>
+            <Link to='/feed'>Feed</Link>
+            <Link to='/search'>Search</Link>
+            <Link
+              onClick={this.handleLogoutClick}
+              to='/'>
+              Logout
+            </Link>
+          </div>
+
+        </div>
       </div>
     )
   }

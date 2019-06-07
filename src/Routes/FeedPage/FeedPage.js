@@ -3,6 +3,7 @@ import Article from '../../components/Article/Article'
 import AppContext from '../../contexts/AppContext'
 import SubscriptionsApiService from '../../services/subscriptions-api-service'
 import NewsApiService from '../../services/news-api-service'
+import './FeedPage.css'
 
 export default class FeedPage extends Component {
   static contextType = AppContext
@@ -42,7 +43,7 @@ export default class FeedPage extends Component {
     return (
       <div>
         <h1>Your Feed</h1>
-        <button type='button' onClick={this.handleCheckNews} >
+        <button className='check-news-btn' type='button' onClick={this.handleCheckNews} >
           Check the news!
         </button>
         <ul className='article-list'>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import FeedCapture from '../../media/feedcapture.png'
-import SearchCapture from '../../media/searchcapture.png'
+import FeedCapture from '../../media/feedcapture.PNG'
+import SearchCapture from '../../media/searchcapture.PNG'
 import './LandingPage.css'
 
 export default class LandingPage extends Component {

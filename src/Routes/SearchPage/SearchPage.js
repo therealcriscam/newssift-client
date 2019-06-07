@@ -3,6 +3,7 @@ import Article from '../../components/Article/Article'
 import AppContext from '../../contexts/AppContext'
 import SubscriptionsApiService from '../../services/subscriptions-api-service'
 import NewsApiService from '../../services/news-api-service'
+import './SearchPage.css'
 
 export default class SearchPage extends Component {
   static contextType = AppContext
