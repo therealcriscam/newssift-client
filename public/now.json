@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "alias": "therealcriscam-newssift-client",
+  "alias": "therealcriscam-newssift-app",
   "name": "newssift-client",
   "routes": [
       {
